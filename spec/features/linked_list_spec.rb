@@ -8,7 +8,4 @@ describe LinkedList do
     list.head.value.must_equal "value"
     list.head.next_node.must_equal nil
   end
-
-  it "" do
-  end
 end
