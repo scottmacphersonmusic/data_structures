@@ -1,6 +1,6 @@
 require 'node'
 
-class SinglyLinkedList
+class LinkedList
   attr_accessor :head
 
   def initialize(value)
