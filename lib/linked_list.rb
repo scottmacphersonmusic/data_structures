@@ -41,4 +41,14 @@ class LinkedList
       return nil if current.next_node.nil?
     end
   end
+
+  def to_s
+    current = @head
+    list = "#{current.value.to_s}"
+    while current.next_node != nil
+      list += ", #{current.next_node.value.to_s}"
+      current = current.next_node
+    end
+    puts list
+  end
 end
