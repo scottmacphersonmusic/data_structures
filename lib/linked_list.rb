@@ -28,7 +28,8 @@ class LinkedList
       return current
     end
     while current.value != val
-      if current.next_node.value == val && current.next_node.next_node != nil
+      return nil if current.next_node.nil?
+      if current.next_node.value == val && !current.next_node.next_node.nil?
         removed = current.next_node
         current.next_node = current.next_node.next_node
         return removed
@@ -38,15 +39,14 @@ class LinkedList
         return removed
       end
       current = current.next_node
-      return nil if current.next_node.nil?
     end
   end
 
   def to_s
     current = @head
-    list = "#{current.value.to_s}"
-    while current.next_node != nil
-      list += ", #{current.next_node.value.to_s}"
+    list = "#{current.value}"
+    until current.next_node.nil?
+      list += ", #{current.next_node.value}"
       current = current.next_node
     end
     puts list
