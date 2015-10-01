@@ -13,6 +13,7 @@ class Stack
   end
 
   def pop
+    raise NoMethodError, "This stack is empty!" if @head.nil?
     temp = @head
     @head = temp.next_node
     return temp
