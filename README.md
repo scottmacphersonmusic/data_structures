@@ -7,6 +7,8 @@ A repository to hold sample code for a number of classic data structures impleme
 ### Features
 - Linked List
   - Create and manipulate singly linked lists
+- Stack
+  - Create a stack, push new nodes to it and pop the top node off
 - Coming soon: *Insertion Sort*
 
 ### Usage
@@ -41,6 +43,21 @@ To print all of the values of the list:
 
 `list.to_s` ==> "3, 4, 5, 7"
 
+##### Stack
+To create a new stack pass it an initial value:
+
+`stack = Stack.new "Comment 1"`
+
+To add a new node to the top of the stack:
+
+`stack.push "Comment 2"`
+
+To pop the top node off the stack:
+
+`stack.pop`
+
+this will return a `Node` object.  You can access its value with the `#value` method.
+
 ### Contributing
 1. Fork It
 2. Create your feature branch (git checkout -b my-new-feature)
@@ -51,5 +68,7 @@ To print all of the values of the list:
 ### Credit
 
 Linked list enlightenment found at [visualgo](http://visualgo.net/list.html#)
+
+I learned about ruby exception handling at [Ruby Learning](http://rubylearning.com/satishtalim/ruby_exceptions.html)
 
 This README was edited at [dillinger.io](dillinger.io)
