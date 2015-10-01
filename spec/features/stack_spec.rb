@@ -18,4 +18,9 @@ describe Stack do
     pop.value.must_equal 6
     @stack.head.value.must_equal 7
   end
+
+  it "raises an exception if stack is empty" do
+    @stack.pop
+    proc { @stack.pop }.must_raise NoMethodError
+  end
 end
