@@ -8,20 +8,20 @@ class LinkedList
   end
 
   def insert(node)
-    node.next_node = @head
+    node.nxt = @head
     @head = node
   end
 
-  def search(val)
+  def search(value)
     current = @head
-    while current.value != val
-      current = current.next_node
-      return nil if current.next_node.nil?
+    while current.val != value
+      current = current.nxt
+      return nil if current.nxt.nil?
     end
     current
   end
 
-  def remove(val)
+  def remove(value)
     current = @head
 
     # if current.value == val
@@ -29,15 +29,15 @@ class LinkedList
     #   return current
     # end
 
-    @head = current.next_node and return current if current.value == val
+    @head = current.nxt and return current if current.val == value
 
-    if current.next_node.value == val
-      found = current.next_node
-      current.next_node = current.next_node.next_node
+    if current.nxt.val == value
+      found = current.nxt
+      current.nxt = current.nxt.nxt
       return found
     else
-      current = current.next_node
-    end until current.next_node.nil?
+      current = current.nxt
+    end until current.nxt.nil?
 
     # if current.next_node.value == val
     #   found = current.next_node
@@ -62,10 +62,10 @@ class LinkedList
 
   def to_s
     current = @head
-    list = "#{current.value}"
-    until current.next_node.nil?
-      list += ", #{current.next_node.value}"
-      current = current.next_node
+    list = "#{current.val}"
+    until current.nxt.nil?
+      list += ", #{current.nxt.val}"
+      current = current.nxt
     end
     puts list
   end
