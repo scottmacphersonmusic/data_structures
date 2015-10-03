@@ -5,6 +5,8 @@ By [Scott Macpherson](https://github.com/scottmacphersonmusic)
 
 A repository to hold sample code for a number of classic data structures implemented in ruby.
 ### Features
+- Insertion Sort
+  - Sort an array using an insertion sort algorithm
 - Linked List
   - Create and manipulate singly linked lists
 - Stack
@@ -13,9 +15,13 @@ A repository to hold sample code for a number of classic data structures impleme
   - Create a queue, enqueue and dequeue items and compute size
 - Benchmarks
   - Use a rake task to see performance statistics for each data structure
-- Coming soon: *Insertion Sort*
 
 ### Usage
+##### Insertion Sort
+The insertion sort algorithm is monkey-patched onto ruby's built-in `Array` class, so to use it just call `#insertion_sort` on an `Array` object:
+
+`[3, 2, 5, 1, 4].insertion_sort` returns `[1, 2, 3, 4, 5]`
+
 ##### Linked List
 Create a new instance of `LinkedList` with an initial value of any type:
 
@@ -101,6 +107,8 @@ This will print performance statistics to the console:
 Linked list enlightenment found at [visualgo](http://visualgo.net/list.html#)
 
 I learned about ruby exception handling at [Ruby Learning](http://rubylearning.com/satishtalim/ruby_exceptions.html)
+
+[Ronald Kinch](https://github.com/ronaldkinch) contributed to the implementation of `Array#insertion_sort`
 
 [Matt Yang](https://github.com/yang70) contributed to the implementation of `ScoQueue`
 
