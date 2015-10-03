@@ -9,6 +9,10 @@ A repository to hold sample code for a number of classic data structures impleme
   - Create and manipulate singly linked lists
 - Stack
   - Create a stack, push new nodes to it and pop the top node off
+- ScoQueue
+  - Create a queue, enqueue and dequeue items and compute size
+- Benchmarks
+  - Use a rake task to see performance statistics for each data structure
 - Coming soon: *Insertion Sort*
 
 ### Usage
@@ -57,6 +61,33 @@ To pop the top node off the stack:
 `stack.pop`
 
 this will return a `Node` object.  You can access its value with the `#value` method.
+##### ScoQueue
+So-named to avoid clashing with the Ruby built-in `Queue`.
+
+To make a new queue:
+
+`q = ScoQueue.new 'job 1'`
+
+To add a new node to the top of the queue:
+
+`q.enqueue 'job 2'`
+
+To compute the number of nodes in the queue:
+
+`q.size` returns: `2`
+
+To remove a node from the bottom of the queue:
+
+`q.dequeue` returns the value of the node: `'job 2'`
+
+##### Benchmarks
+To run benchmarks, navigate to the root of the project directory in your terminal and enter:
+```bash
+$ rake bm
+```
+This will print performance statistics to the console:
+
+![benchmarks](/benchmarks.png)
 
 ### Contributing
 1. Fork It
@@ -70,5 +101,7 @@ this will return a `Node` object.  You can access its value with the `#value` me
 Linked list enlightenment found at [visualgo](http://visualgo.net/list.html#)
 
 I learned about ruby exception handling at [Ruby Learning](http://rubylearning.com/satishtalim/ruby_exceptions.html)
+
+[Matt Yang](https://github.com/yang70) contributed to the implementation of `ScoQueue`
 
 This README was edited at [dillinger.io](dillinger.io)
