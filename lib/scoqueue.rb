@@ -1,11 +1,10 @@
 require 'node'
 
 class ScoQueue
-  attr_accessor :head, :tail
+  attr_accessor :head
 
   def initialize(value)
     @head = Node.new value
-    @tail = @head
   end
 
   def enqueue(value)
@@ -14,13 +13,20 @@ class ScoQueue
   end
 
   def dequeue
-    last = @tail
+    raise NoMethodError, "This queue is empty!"if @head.nil?
+    if @head.nxt.nil?
+      temp = @head
+      @head = nil
+      return temp
+    end
     current = @head
-    while (current.nxt != nil) && (current.nxt != @tail)
-      puts current.inspect
+    while current.nxt != nil
+      if current.nxt.nxt == nil
+        temp = current.nxt
+        current.nxt = nil
+        return temp
+      end
       current = current.nxt
     end
-    @tail = current
-    return last
   end
 end
