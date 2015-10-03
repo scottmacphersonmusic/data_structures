@@ -29,4 +29,15 @@ class ScoQueue
       current = current.nxt
     end
   end
+
+  def size
+    return 0 if @head.nil?
+    current = @head
+    size = 1
+    while current.nxt != nil
+      size += 1
+      current = current.nxt
+    end
+    size
+  end
 end
