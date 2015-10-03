@@ -17,14 +17,14 @@ class ScoQueue
     if @head.nxt.nil?
       temp = @head
       @head = nil
-      return temp
+      return temp.val
     end
     current = @head
     while current.nxt != nil
       if current.nxt.nxt == nil
         temp = current.nxt
         current.nxt = nil
-        return temp
+        return temp.val
       end
       current = current.nxt
     end
