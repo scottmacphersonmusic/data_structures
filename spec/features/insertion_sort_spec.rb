@@ -7,7 +7,7 @@ describe 'Insertion Sort' do
     a.insertion_sort.must_equal (1..10).to_a
   end
 
-  it "returns array if lenght == 1" do
+  it "returns array if length == 1" do
     [7].insertion_sort.must_equal [7]
   end
 end
