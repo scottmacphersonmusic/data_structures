@@ -1,0 +1,17 @@
+Metrics/AbcSize:
+  Enabled: false
+
+Metrics/MethodLength:
+  Enabled: false
+
+Style/AndOr:
+  Enabled: false
+
+# Ignore the double/single quote offenses
+StringLiterals:
+  Enabled: false
+
+# Ignore the "top-level documentation" cops
+# Source - https://github.com/bbatsov/rubocop/issues/691
+Documentation:
+  Enabled: false

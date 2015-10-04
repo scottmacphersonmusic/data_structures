@@ -13,8 +13,8 @@ stack = Stack.new "layer"
 stack_2 = Stack.new "layer"
 t.times { stack_2.push "layer" }
 Benchmark.bm(15) do |x|
-  x.report("t pushes:") { t.times do ; stack.push "layer" end }
-  x.report("t pops:") { t.times do ; stack_2.pop end }
+  x.report("t pushes:") { t.times { stack.push "layer" } }
+  x.report("t pops:") { t.times { stack_2.pop } }
 end
 
 puts space

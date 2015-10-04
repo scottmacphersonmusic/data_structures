@@ -13,15 +13,15 @@ class ScoQueue
   end
 
   def dequeue
-    raise NoMethodError, "This queue is empty!"if @head.nil?
+    fail NoMethodError, "This queue is empty!" if @head.nil?
     if @head.nxt.nil?
       temp = @head
       @head = nil
       return temp.val
     end
     current = @head
-    while current.nxt != nil
-      if current.nxt.nxt == nil
+    until current.nxt.nil?
+      if current.nxt.nxt.nil?
         temp = current.nxt
         current.nxt = nil
         return temp.val
@@ -34,7 +34,7 @@ class ScoQueue
     return 0 if @head.nil?
     current = @head
     size = 1
-    while current.nxt != nil
+    until current.nxt.nil?
       size += 1
       current = current.nxt
     end

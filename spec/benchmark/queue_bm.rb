@@ -13,8 +13,8 @@ q = ScoQueue.new "q"
 q_2 = ScoQueue.new "q"
 t.times { q_2.enqueue "q" }
 Benchmark.bm(15) do |x|
-  x.report("t enqueues:") { t.times do ; q.enqueue "q" end }
-  x.report("t dequeues:") { t.times do ; q_2.dequeue end }
+  x.report("t enqueues:") { t.times { q.enqueue "q" } }
+  x.report("t dequeues:") { t.times { q_2.dequeue } }
 end
 
 puts space

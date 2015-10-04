@@ -9,7 +9,7 @@ describe 'Merge Sort' do
 
   it "sorts an array of numbers" do
     a = (1..10).to_a.shuffle
-    a.merge_sort.must_equal (1..10).to_a
+    a.merge_sort.must_equal((1..10).to_a)
   end
 
   it "returns array if length == 1" do
