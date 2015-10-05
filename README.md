@@ -7,6 +7,8 @@ A repository to hold sample code for a number of classic data structures impleme
 ### Features
 - Insertion Sort
   - Sort an array using an insertion sort algorithm
+- Merge Sort
+  - Sort an array using a merge sort algorithm
 - Linked List
   - Create and manipulate singly linked lists
 - Stack
@@ -21,6 +23,19 @@ A repository to hold sample code for a number of classic data structures impleme
 The insertion sort algorithm is monkey-patched onto ruby's built-in `Array` class, so to use it just call `#insertion_sort` on an `Array` object:
 
 `[3, 2, 5, 1, 4].insertion_sort` returns `[1, 2, 3, 4, 5]`
+
+###### Approach
+The insertion sort algorithm will immediately return the array if it only has one element in it.  If there are multiple elements in the array, it creates an empty array, `sorted`, and iterates forward through the original array pushing elements into `sorted`.  For each iteration of the original array, the element will be pushed onto the end of `sorted`, and iterate backwards through `sorted` until it hits a number smaller than it or the beginning of the array and then insert itself. For each backward iteration of `sorted`, if the pushed element is smaller than the one its being compared to, the element from sorted will be assigned to the element one index up and the backwards iteration will continues.  Once an element pushed into `sorted` is compared to an element equal to or smaller than itself it is assigned to the current index and the backward iteration loop will break to jump to the next forward iteration of the original array.
+
+##### Merge Sort
+Merge sort is also monkey-patched onto `Array`.  Like the insertion sort it will return an array sorted from lowest to highest, but works more consistently across arrays of generally increasing, decreasing or random ordering.
+
+###### Approach
+The `merge_sort` algorithm calls itself recursively on an array until each element is in its own array, then it merges them back together in increasing order until they're all joined in a single array again.  To accomplish this it depends on another method called `merge`.
+
+`Array#merge` takes an array as an argument and depending on which is smaller will shift the first element off either `self` or the input array into a new array, `merged`, which it will return once all the elements from at least one of the arrays has been shifted out.
+
+`Array#merge_sort` works by spliting the `Array` object (`self`) in half and then calling `merge_sort` on each half.  The right half is then `merge`-ed into the left half . Because `merge_sort` calls itself recursively, each half of a given array will be split until it reaches that base case of a one element array.
 
 ##### Linked List
 Create a new instance of `LinkedList` with an initial value of any type:
