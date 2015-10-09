@@ -5,7 +5,7 @@ class HashTable
 
   def initialize(size)
     @size = size
-    @table = Array.new size, Bucket.new
+    @table = set_buckets
   end
 
   def hash(key)
@@ -28,5 +28,10 @@ class HashTable
 
   def bucket(key)
     @table[hash(key)]
+  end
+
+  def set_buckets
+    table = Array.new @size
+    table.map { |i| i = Bucket.new }
   end
 end

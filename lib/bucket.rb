@@ -27,16 +27,26 @@ class Bucket
   end
 
   def remove(key)
+    return nil if @head.nil?
+    if @head.key == key && @head.nxt.nil?
+      value = @head.value
+      @head = nil
+      return value
+    elsif @head.key == key
+      value = @head.value
+      @head = @head.nxt
+      return value
+    end
+
     current = @head
 
-    @head = current.nxt and return current.value if current.key == key
-
-    if current.nxt.key == key
-      found = current.nxt
-      current.nxt = current.nxt.nxt
-      return found.value
-    else
+    while current.nxt.key != key
       current = current.nxt
-    end until current.nxt.nil?
+      return nil if current.nxt.nil?
+    end
+
+    value = current.nxt.value
+    current.nxt = (current.nxt.nxt.nil? ? nil : current.nxt.nxt)
+    return value
   end
 end
