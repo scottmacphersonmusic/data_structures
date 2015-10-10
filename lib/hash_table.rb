@@ -13,6 +13,7 @@ class HashTable
   end
 
   def set(key, value)
+    raise TypeError, "key must be a String" if key.class != String
     bucket(key).insert key, value
   end
 

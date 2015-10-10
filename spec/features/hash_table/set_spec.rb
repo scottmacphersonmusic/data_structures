@@ -7,16 +7,23 @@ describe HashTable do
   end
 
   it "sets key/value pairs" do
-    @hash.set('apple', 'elppa')
+    @hash.set 'apple', 'elppa'
+    @hash.set 'orange', 'egnaro'
     @hash.table[0].head.value.must_equal 'elppa'
-    @hash.set('orange', 'egnaro')
     @hash.table[1].head.value.must_equal 'egnaro'
   end
 
-  it "inserts a colliding node at the bucket's head" do
-    @hash.set('orange', 'egnaro')
-    @hash.set('kiwi', 'iwik')
+  it "sets a colliding node at the bucket's head" do
+    @hash.set 'orange', 'egnaro'
+    @hash.set 'kiwi', 'iwik'
     @hash.table[1].head.value.must_equal 'iwik'
     @hash.table[1].head.nxt.value.must_equal 'egnaro'
+  end
+
+  it "raises an exception if key isn't a string" do
+    [:symbol, 7, true].each do |type|
+      proc { @hash.set type, 'value' }
+        .must_raise NoMethodError
+    end
   end
 end
