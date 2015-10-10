@@ -23,7 +23,7 @@ describe HashTable do
   it "raises an exception if key isn't a string" do
     [:symbol, 7, true].each do |type|
       proc { @hash.set type, 'value' }
-        .must_raise NoMethodError
+        .must_raise TypeError
     end
   end
 end

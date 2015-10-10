@@ -30,7 +30,8 @@ class Bucket
   def remove(key)
     return nil if @head.nil?
 
-    value = @head.value and if @head.key == key
+    value = @head.value
+    if @head.key == key
       @head = @head.nxt.nil? ? nil : @head.nxt
       return value
     end
@@ -42,7 +43,7 @@ class Bucket
     end
 
     value = current.nxt.value
-    current.nxt = (current.nxt.nxt.nil? ? nil : current.nxt.nxt)
+    current.nxt = current.nxt.nxt.nil? ? nil : current.nxt.nxt
     value
   end
 end

@@ -9,11 +9,11 @@ class HashTable
   end
 
   def hash(key)
-    key.chars.reduce(0) { |ord_sum, char| ord_sum + char.ord } % @size
+    key.chars.reduce(0) { |a, e| a + e.ord } % @size
   end
 
   def set(key, value)
-    raise TypeError, "key must be a String" if key.class != String
+    fail TypeError, "key must be a String" if key.class != String
     bucket(key).insert key, value
   end
 
@@ -33,6 +33,6 @@ class HashTable
 
   def set_buckets
     table = Array.new @size
-    table.map { |i| i = Bucket.new }
+    table.map { Bucket.new }
   end
 end
