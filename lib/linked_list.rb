@@ -23,6 +23,7 @@ class LinkedList
 
   def remove(value)
     current = @head
+
     @head = current.nxt and return current if current.val == value
     if current.nxt.val == value
       found = current.nxt

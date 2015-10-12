@@ -1,0 +1,7 @@
+language: ruby
+rvm:
+ - 2.2.3
+install:
+  - gem install minitest
+  - gem install minitest-reporters
+script: rake test
