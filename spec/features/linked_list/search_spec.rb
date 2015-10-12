@@ -13,8 +13,8 @@ describe LinkedList do
     # When I search for a value that is present
     node = @list.search 6
     # Then it returns the correct node object
-    node.value.must_equal 6
-    node.next_node.must_be_instance_of Node
+    node.val.must_equal 6
+    node.nxt.must_be_instance_of Node
   end
 
   it "return nil when search value isn't present" do
