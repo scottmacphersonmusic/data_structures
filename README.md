@@ -168,6 +168,5 @@ I learned about ruby exception handling at [Ruby Learning](http://rubylearning.c
 
 This README was edited at [dillinger.io](dillinger.io)
 
-
 ### License
 data_structures is released under the [MIT License](http://opensource.org/licenses/MIT)
