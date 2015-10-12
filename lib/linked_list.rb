@@ -24,15 +24,15 @@ class LinkedList
   def remove(value)
     current = @head
 
-    @head = current.next_node and return current if current.value == val
+    @head = current.nxt and return current if current.val == value
 
     if current.nxt.val == value
       found = current.nxt
       current.nxt = current.nxt.nxt
       return found
     else
-      current = current.next_node
-    end until current.next_node.nil?
+      current = current.nxt
+    end until current.nxt.nil?
   end
 
   def to_s
