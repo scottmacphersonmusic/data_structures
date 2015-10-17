@@ -28,7 +28,9 @@ class BinTree
   end
 
   def post_order
+    result = []
+    @left.post_order.each { |val| result << val }
+    @right.post_order.each { |val| result << val }
+    result << @val
   end
 end
-
-puts "NilBinTree.pre_order:  #{NilBinTree.new.pre_order}"
