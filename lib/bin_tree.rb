@@ -20,6 +20,11 @@ class BinTree
   end
 
   def in_order
+    result = []
+    @left.in_order.each { |val| result << val }
+    result << @val
+    @right.in_order.each { |val| result << val }
+    result
   end
 
   def post_order

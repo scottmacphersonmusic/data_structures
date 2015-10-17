@@ -20,15 +20,19 @@ describe BinTree do
 
   it "performs pre-order traversal" do
     @tree.pre_order.must_equal ['Tim', 'Jony', 'Katie', 'Peter',
-                                'Andrea', 'Dan', 'Phil', 'Craig', 'Eddie']
+                                'Andrea', 'Dan', 'Phil', 'Craig', 'Eddie'
+                               ]
   end
 
   it "performs in-order traversal" do
     @tree.in_order.must_equal ['Peter', 'Katie', 'Andrea', 'Jony',
-                               'Dan', 'Tim', 'Craig', 'Phil', 'Eddie']
+                               'Dan', 'Tim', 'Craig', 'Phil', 'Eddie'
+                              ]
   end
 
   it "performs post-order traversal" do
-    @tree.post_order.must_equal ['Peter', 'Andrea', 'Katie', 'Dan', 'Jony', 'Craig', 'Eddie', 'Phil', 'Tim']
+    @tree.post_order.must_equal ['Peter', 'Andrea', 'Katie', 'Dan',
+                                 'Jony', 'Craig', 'Eddie', 'Phil', 'Tim'
+                                ]
   end
 end
