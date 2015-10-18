@@ -14,25 +14,22 @@ describe BinTree do
                         BinTree.new('Phil',
                                     BinTree.new('Craig'),
                                     BinTree.new('Eddie')
-                                    )
+                                   )
                        )
   end
 
   it "performs pre-order traversal" do
-    @tree.pre_order.must_equal ['Tim', 'Jony', 'Katie', 'Peter',
-                                'Andrea', 'Dan', 'Phil', 'Craig', 'Eddie'
-                               ]
+    result = %w(Tim Jony Katie Peter Andrea Dan Phil Craig Eddie)
+    @tree.pre_order.must_equal result
   end
 
   it "performs in-order traversal" do
-    @tree.in_order.must_equal ['Peter', 'Katie', 'Andrea', 'Jony',
-                               'Dan', 'Tim', 'Craig', 'Phil', 'Eddie'
-                              ]
+    result = %w(Peter Katie Andrea Jony Dan Tim Craig Phil Eddie)
+    @tree.in_order.must_equal result
   end
 
   it "performs post-order traversal" do
-    @tree.post_order.must_equal ['Peter', 'Andrea', 'Katie', 'Dan',
-                                 'Jony', 'Craig', 'Eddie', 'Phil', 'Tim'
-                                ]
+    result = %w(Peter Andrea Katie Dan Jony Craig Eddie Phil Tim)
+    @tree.post_order.must_equal result
   end
 end

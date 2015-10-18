@@ -1,11 +1,13 @@
 class NilBinTree
-  def method_missing(name); []; end
+  def method_missing(_name)
+    []
+  end
 end
 
 class BinTree
   attr_reader :val, :left, :right
 
-  def initialize(val, left=NilBinTree.new, right=NilBinTree.new)
+  def initialize(val, left = NilBinTree.new, right = NilBinTree.new)
     @val = val
     @left = left
     @right = right
