@@ -19,6 +19,8 @@ A repository to hold sample code for a number of classic data structures impleme
   - Create a queue, enqueue and dequeue items and compute size
 - Hash Table
   - Create a hash table to store key/value pairs
+- Binary Tree
+  - Traverse a binary tree using any of the three depth-first approaches: pre-order, in-order and post-order
 - Benchmarks
   - Use a rake task to see performance statistics for each data structure
 - Travis CI
@@ -138,6 +140,41 @@ end
 That remainder will be the index of `@table` in which the key/value will be insterted.
 
 Each slot in `@table` holds a linked list object called `Bucket`. Each `Bucket` has an instance variable `@head` and methods to insert, search for, and remove key/value pairs.  When a second item is set into the hash table with the same `@table` index as an existing one, the new item replaces the node at that bucket's `@head` and stores the previous node in its `@nxt` instance variable.  When a key/value pair is accessed either by `get` or `delete`, the hashing algorithm points to the right bucket, which then performs either `search` or `remove` and returns the result to the `HashTable` object.
+
+##### Binary Tree
+Create a new binary tree by passing it a value:
+
+`BinTree.new 'Root Value'`
+
+You can pass one or two new `BinTree` objects as the second and third arguments when creating a new one:
+
+```ruby
+tree = BinTree.new('root',
+                   BinTree.new('left'),
+                   BinTree.new('right')
+                   )
+```
+
+**if you omit the second and/or third argument it will default to a `NilBinTree` object*
+
+Each mode of traversal returns an `Array`:
+
+```ruby
+tree.pre_order # => ['root', 'left', 'right']
+
+tree.in_order # => ['left', 'root', 'right']
+
+tree.post_order # => ['left', 'right', 'root']
+```
+
+###### Approach
+`BinTree` provides the above three methods of traversal.  They are very similar, so we'll focus just on pre-order traversal.
+
+`BinTree#pre_order` first creates an array called `result` with only the tree's `@value` attribute in it. It then recursively calls `pre_order`on its `@left` attribute and pushes each of the values from the resulting array into `result`.  Next it recursively calls `pre_order` on its `@right` attribute and again pushes the returned values into `result` before returning `result`.
+
+This binary tree implementation makes use of the *null-object pattern* to deal with the recursive base-case.  If an instance of `BinTree` is initialized without an argument given for the left or right attributes, they will instead be assigned to a new instance of `NilBinTree`.
+
+`NilBinTree` uses `method_missing` to return an empty `Array` when any of the traversal methods are called on it.
 
 ##### Benchmarks
 To run benchmarks, navigate to the root of the project directory in your terminal and enter:
