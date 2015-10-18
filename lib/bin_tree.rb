@@ -14,8 +14,7 @@ class BinTree
   end
 
   def pre_order
-    result = []
-    result << @val
+    result = [@val]
     @left.pre_order.each { |val| result << val }
     @right.pre_order.each { |val| result << val }
     result
