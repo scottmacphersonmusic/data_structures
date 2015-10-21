@@ -8,11 +8,7 @@ class Array
   def merge(arr)
     merged = []
     until length == 0 || arr.length == 0
-      if first <= arr.first
-        merged << shift
-      else
-        merged << arr.shift
-      end
+      merged << (first <= arr.first ? shift : arr.shift)
     end
     merged + self + arr
   end
